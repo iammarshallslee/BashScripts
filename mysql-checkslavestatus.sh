@@ -1,9 +1,4 @@
 #!/bin/bash
-
-### Parameters Guide ###
-# The first parameter ($1): mysql username
-# The second parameter ($2): password
-
 HOSTNAME=$(hostname)
 function checkSlaveStatus() {
 	SLAVE_IO_RUNNING=`mysql --login-path=check_slave_status -e 'show slave status\G' | grep Slave_IO_Running`
