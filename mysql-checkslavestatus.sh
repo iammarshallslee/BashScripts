@@ -1,4 +1,5 @@
 #!/bin/bash
+
 HOSTNAME=$(hostname)
 function checkSlaveStatus() {
 	SLAVE_IO_RUNNING=`mysql --login-path=check_slave_status -e 'show slave status\G' | grep Slave_IO_Running`
