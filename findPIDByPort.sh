@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# NOTE: THIS SCRIPT WORKS ONLY WHEN RUN UNDER ROOT.
 REGEX='^[0-9]+$'
 function findPIDByPort() {
 	if [[ -z "$1" ]]; then
@@ -8,7 +10,7 @@ function findPIDByPort() {
 		echo "$1 is not a number" >&2;
 		exit 1
 	else
-		if ./isPortInUse.sh $1; then 
+		if ./isPortInUse.sh $1 == "0" ; then 
 			echo `lsof -i:$1 -t`
 		else
 			echo "There is no PID listening on $1."
